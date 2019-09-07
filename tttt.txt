@@ -1,0 +1,10 @@
+package literal;
+
+public class SumOfTwoNumber {
+
+int num1,num2,sum;
+num1=4;
+num2=5;
+sum=num1+num2;
+System.out.println(sum);
+}

@@ -1,0 +1,71 @@
+Profit Maximization
+You have to travel to different villages to make some profit.
+In each village, you gain some profit. But the catch is, from a particular village i, you can only move to a village j if and only if  and the profit gain from village j is a multiple of the profit gain from village i.
+
+You have to tell the maximum profit you can gain while traveling.
+
+Input format
+
+The first line contains a single integer N denoting the total number of villages.
+The second line contains N space-separated integers, each denoting the profit gain  from village i.
+Output format
+
+Print the maximum profit you can gain.
+
+Constraints
+
+
+
+ 
+
+Sample Input
+6
+1 2 3 4 9 8
+Sample Output
+15
+Explanation
+The maximum profit 15 can be achieved by following the path with villages at index (0, 1, 3, 5) with profit gain (1, 2, 4, 8).
+
+Note: Your code should be able to convert the sample input into the sample output. However, this is not enough to pass the challenge, because the code will be run on multiple test cases. Therefore, your code must solve this problem statement.
+
+
+
+
+
+
+
+#include<stdio.h>
+#include<stdbool.h>
+#include<malloc.h>
+
+int solve (int n,int* a ) {
+   // Write your code here
+   int c_sum = 0, m_sum = -999;
+  for(int i=0;i<n;i++) {
+      int i = 0;
+      c_sum = a[i];
+      int k = i+1, p_i = i;
+      while(k<n) {
+            if(a[k]%a[p_i]==0) {
+                p_i = k;
+                c_sum += a[k++];
+            }   
+      }
+      if(c_sum>m_sum) {
+          m_sum = c_sum;
+      }
+  }
+   return m_sum;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    int i_p;
+    int *p = (int *)malloc(n * sizeof(int));
+    for(i_p=0; i_p<n; i_p++)
+    	scanf("%d", &p[i_p]);
+
+    int out_ = solve(n,p);
+    printf("%d", out_);
+}

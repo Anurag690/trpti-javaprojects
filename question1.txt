@@ -1,0 +1,81 @@
+Chocolate distribution
+There are  people standing in a row with some   number of chocolates in their hands. You have to select a range of people and take all their chocolates with the condition that you should be able to distribute those chocolates equally among  boxes.
+
+Write a program to determine the maximum number of chocolates that can be placed in a box.
+
+Input format
+
+First line:  (number of test cases)
+First line in each test case: Two space-separated integers  and 
+Second line in each test case:  space-separated integers (denoting the number of chocolates)
+Output format
+
+For each test case, print the maximum number of chocolates that can be placed in a box.
+
+Constraints
+
+
+
+
+Sum of  over all test cases 
+
+Sample Input
+3
+5 3
+1 2 3 4 5
+5 4
+1 2 3 4 5
+5 8
+1 2 3 4 5
+
+
+
+
+
+
+#include<stdio.h>
+#include<stdbool.h>
+#include<malloc.h>
+
+int solution (int* choc, int M, int N ) {
+   // Find the maximum number of chocolates that can be selected.
+   int curr_max = 0, max_count = 0;
+   for(int i=0;i<N;i++) {
+       curr_max += choc[i];
+   }
+   
+   int rem = 0;
+   
+   if(curr_max%M==0) {
+       max_count = curr_max;
+    } else {
+        rem = curr_max % M;
+        for(int i=0;i<N;i++) {
+            if()
+        }
+    }
+    
+    
+    
+   return curr_max / M;
+}
+
+int main() {
+    int T;
+    scanf("%d", &T);
+    for(int t_i=0; t_i<T; t_i++)
+    {
+        int N;
+        scanf("%d", &N);
+        int M;
+        scanf("%d", &M);
+        int i_chocolates;
+        int *chocolates = (int *)malloc(N*sizeof(int));
+        for(i_chocolates=0; i_chocolates<N; i_chocolates++)
+        	scanf("%d", &chocolates[i_chocolates]);
+
+        int out_ = solution(chocolates, M, N);
+        printf("%d", out_);
+        printf("\n");
+    }
+}
